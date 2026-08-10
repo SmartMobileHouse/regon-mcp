@@ -1,10 +1,11 @@
 [project]
 name = "regon-mcp"
-version = "0.2.1"
+version = "0.2.2"
 description = "Model Context Protocol server for the Polish GUS REGON business register (BIR1 API)."
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "MIT" }
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [{ name = "Smart Mobile House" }]
 keywords = [
   "mcp",
@@ -17,7 +18,6 @@ keywords = [
   "kyc",
 ]
 classifiers = [
-  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
   "Topic :: Office/Business",
 ]

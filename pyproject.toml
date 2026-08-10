@@ -1,0 +1,53 @@
+[project]
+name = "regon-mcp"
+version = "0.2.0"
+description = "Model Context Protocol server for the Polish GUS REGON business register (BIR1 API)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Smart Mobile House" }]
+keywords = [
+  "mcp",
+  "model-context-protocol",
+  "regon",
+  "gus",
+  "bir",
+  "poland",
+  "company-data",
+  "kyc",
+]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Office/Business",
+]
+dependencies = [
+  # Cap the MCP SDK below the next major: the 1.x -> 2.x jump was breaking,
+  # so a future 3.x could be too. httpx is intentionally left unbounded.
+  "mcp>=2.0.0,<3",
+  "httpx>=0.27",
+  "defusedxml>=0.7",
+]
+
+[project.urls]
+Homepage = "https://smartmobilehouse.com"
+Repository = "https://github.com/SmartMobileHouse/regon-mcp"
+Issues = "https://github.com/SmartMobileHouse/regon-mcp/issues"
+
+[project.scripts]
+regon-mcp = "regon_mcp.server:main"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/regon_mcp"]
+
+[tool.pytest.ini_options]
+markers = [
+  "network: integration tests that hit the live GUS BIR test endpoint",
+]

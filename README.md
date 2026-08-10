@@ -1,5 +1,7 @@
 # regon-mcp
 
+<!-- mcp-name: io.github.SmartMobileHouse/regon-mcp -->
+
 A [Model Context Protocol](https://modelcontextprotocol.io) server that gives AI
 assistants clean, typed access to the **Polish REGON business register** (GUS
 BIR1). Look up any Polish company by **NIP**, **REGON**, or **KRS** and get back

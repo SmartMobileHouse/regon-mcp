@@ -1,0 +1,36 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.SmartMobileHouse/regon-mcp",
+  "title": "REGON (Polish business register)",
+  "description": "Look up Polish businesses in the official GUS REGON register (BIR1) by NIP, REGON, or KRS — search, bulk lookup, and full reports.",
+  "repository": {
+    "url": "https://github.com/SmartMobileHouse/regon-mcp",
+    "source": "github"
+  },
+  "version": "0.2.1",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "regon-mcp",
+      "version": "0.2.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "REGON_API_KEY",
+          "description": "GUS BIR USER_KEY for live production data. Omit to use the public test key against the anonymized test database.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "REGON_ENV",
+          "description": "Which GUS environment to query: 'test' (default) or 'prod'. Use 'prod' with a real USER_KEY.",
+          "isRequired": false,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}

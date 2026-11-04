@@ -1,6 +1,6 @@
 [project]
 name = "regon-mcp"
-version = "0.2.2"
+version = "0.2.3"
 description = "Model Context Protocol server for the Polish GUS REGON business register (BIR1 API)."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -31,6 +31,7 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://smartmobilehouse.com"
+Documentation = "https://smartmobilehouse.com/blog/open-source-mcp-server-regon-registry/"
 Repository = "https://github.com/SmartMobileHouse/regon-mcp"
 Issues = "https://github.com/SmartMobileHouse/regon-mcp/issues"
 

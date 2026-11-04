@@ -15,6 +15,8 @@ behind a handful of simple tools.
 
 > Built and maintained by [Smart Mobile House](https://smartmobilehouse.com) —
 > secure AI implementation for enterprise.
+>
+> Background and design notes: [the regon-mcp write-up](https://smartmobilehouse.com/blog/open-source-mcp-server-regon-registry/).
 
 ## Tools
 

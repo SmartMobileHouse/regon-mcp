@@ -1,6 +1,30 @@
-# regon-mcp
+<p align="center">
+  <a href="https://smartmobilehouse.com">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SmartMobileHouse/.github/main/profile/assets/smh-mark-light.svg">
+      <img src="https://raw.githubusercontent.com/SmartMobileHouse/.github/main/profile/assets/smh-mark-dark.svg" alt="Smart Mobile House" height="56">
+    </picture>
+  </a>
+</p>
+<h1 align="center">regon-mcp</h1>
+<p align="center">
+  <strong>An MCP server that gives AI assistants typed access to the Polish REGON business register (GUS BIR1).</strong><br>
+  Look up any Polish company by NIP, REGON or KRS through six simple tools, with no SOAP code on your side.
+</p>
 
 <!-- mcp-name: io.github.SmartMobileHouse/regon-mcp -->
+
+<div align="center">
+
+[![PyPI](https://img.shields.io/pypi/v/regon-mcp)](https://pypi.org/project/regon-mcp/)
+[![Python](https://img.shields.io/pypi/pyversions/regon-mcp)](https://pypi.org/project/regon-mcp/)
+[![CI](https://github.com/SmartMobileHouse/regon-mcp/actions/workflows/publish.yml/badge.svg)](https://github.com/SmartMobileHouse/regon-mcp/actions/workflows/publish.yml)
+[![License](https://img.shields.io/github/license/SmartMobileHouse/regon-mcp)](LICENSE)
+[![Smart Mobile House](https://img.shields.io/badge/built%20by-Smart%20Mobile%20House-1F3A38)](https://smartmobilehouse.com)
+
+</div>
+
+## What it does
 
 A [Model Context Protocol](https://modelcontextprotocol.io) server that gives AI
 assistants clean, typed access to the **Polish REGON business register** (GUS
@@ -12,13 +36,6 @@ The official [GUS BIR1 API](https://api.stat.gov.pl/Home/RegonApi) is a WCF SOAP
 service with WS-Addressing, MTOM multipart responses, an HTTP-header session
 token, and XML-nested-inside-XML result payloads. `regon-mcp` hides all of that
 behind a handful of simple tools.
-
-> Built and maintained by [Smart Mobile House](https://smartmobilehouse.com) —
-> secure AI implementation for enterprise.
->
-> Background and design notes: [the regon-mcp write-up](https://smartmobilehouse.com/blog/open-source-mcp-server-regon-registry/).
-
-## Tools
 
 | Tool | Description |
 | --- | --- |
@@ -33,6 +50,8 @@ Every response includes a `source` block that names the register (REGON / GUS),
 the environment, and a UTC `retrieved_at` timestamp — so downstream use can cite
 the data correctly, as GUS requires.
 
+Design notes: [the regon-mcp write-up](https://smartmobilehouse.com/blog/open-source-mcp-server-regon-registry/).
+
 ## Quick start
 
 No install needed — run it straight from the repo with
@@ -41,6 +60,8 @@ No install needed — run it straight from the repo with
 ```bash
 uvx --from git+https://github.com/SmartMobileHouse/regon-mcp regon-mcp
 ```
+
+From [PyPI](https://pypi.org/project/regon-mcp/): `uvx regon-mcp`.
 
 By default it uses the **public test key** against the anonymized GUS test
 database, so it runs with zero setup. For live data, request a free `USER_KEY`
@@ -79,6 +100,16 @@ During development, point it at a local checkout instead:
   }
 }
 ```
+
+## Status
+
+- [x] Look up entities by NIP, REGON and KRS
+- [x] Bulk lookup of up to 20 entities of one type
+- [x] Detailed reports, with guidance on which report type to use
+- [x] A `source` block with the register, environment and UTC retrieval time in every response
+- [x] Runs with zero setup on the public test key; live data with a free GUS `USER_KEY`
+- [x] Offline test suite, including an in-memory MCP tool-discovery smoke test
+- [x] Published on PyPI and the official MCP Registry
 
 ## Configuration
 
@@ -119,6 +150,27 @@ The client is a small hand-rolled SOAP layer over `httpx` (see
 - Data belongs to GUS. When you present it, cite **REGON / GUS** with the
   retrieval date (surfaced in every response's `source` block).
 
+## Contributing
+
+Issues and pull requests are welcome.
+
+## Why regon-mcp?
+
+### The official API is hard to call
+
+The GUS BIR1 API is a WCF SOAP service with WS-Addressing, MTOM multipart responses, an HTTP-header session token and XML nested inside XML result payloads.
+
+### AI assistants need simple, typed tools
+
+- A generic SOAP client leaves the session handling and payload parsing to every integration.
+- Assistants need validated identifiers and structured fields they can cite.
+
+### This server does the plumbing once
+
+- A small hand-rolled SOAP layer over `httpx`, with no heavyweight SOAP stack and no runtime WSDL fetch.
+- Six tools that return structured data: name, address, legal form and activity codes.
+- Every response names its source, as GUS requires.
+
 ## License
 
-[MIT](LICENSE) © Smart Mobile House
+[MIT](LICENSE) © Smart Mobile House. Built and maintained by [Smart Mobile House](https://smartmobilehouse.com).

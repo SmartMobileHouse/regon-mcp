@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark.svg">
-    <img src="assets/logo.svg" alt="regon-mcp logo" width="96" height="96">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SmartMobileHouse/regon-mcp/main/assets/logo-dark.svg">
+    <img src="https://raw.githubusercontent.com/SmartMobileHouse/regon-mcp/main/assets/logo.svg" alt="regon-mcp logo" width="96" height="96">
   </picture>
 </p>
 <h1 align="center">regon-mcp</h1>
